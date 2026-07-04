@@ -1,0 +1,13 @@
+{
+  "name": "four-word-quiz",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Realtime classroom four-word quiz with Firebase Realtime Database and Gemini API.",
+  "scripts": {
+    "start": "vercel dev",
+    "check": "node --check api/check-teacher.js && node --check api/generate-words.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

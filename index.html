@@ -1,0 +1,1213 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>4글자 퀴즈</title>
+  <style>
+    :root {
+      --bg1: #fff7ed;
+      --bg2: #eef2ff;
+      --card: rgba(255, 255, 255, 0.88);
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --green: #16a34a;
+      --red: #dc2626;
+      --yellow: #f59e0b;
+      --shadow: 0 18px 50px rgba(31, 41, 55, 0.14);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #fde68a 0, transparent 34%),
+        radial-gradient(circle at top right, #c7d2fe 0, transparent 36%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      border-radius: 16px;
+      padding: 13px 18px;
+      color: white;
+      background: var(--primary);
+      cursor: pointer;
+      font-weight: 800;
+      box-shadow: 0 10px 22px rgba(99, 102, 241, 0.22);
+      transition: transform 0.08s ease, filter 0.12s ease;
+    }
+
+    button:hover { filter: brightness(0.98); }
+    button:active { transform: translateY(1px) scale(0.99); }
+    button:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+    .btn-secondary { background: #64748b; box-shadow: 0 10px 22px rgba(100, 116, 139, 0.18); }
+    .btn-green { background: var(--green); box-shadow: 0 10px 22px rgba(22, 163, 74, 0.18); }
+    .btn-red { background: var(--red); box-shadow: 0 10px 22px rgba(220, 38, 38, 0.18); }
+    .btn-yellow { background: var(--yellow); box-shadow: 0 10px 22px rgba(245, 158, 11, 0.20); color: #3f2b00; }
+    .btn-small { padding: 8px 11px; border-radius: 12px; font-size: 0.9rem; }
+
+    input {
+      width: 100%;
+      border: 2px solid transparent;
+      border-radius: 16px;
+      padding: 14px 16px;
+      background: #f8fafc;
+      color: var(--text);
+      outline: none;
+      font-weight: 700;
+    }
+
+    input:focus {
+      border-color: #a5b4fc;
+      background: white;
+    }
+
+    .app {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 24px 0 48px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: white;
+      box-shadow: var(--shadow);
+      font-size: 1.8rem;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 0; font-size: clamp(1.55rem, 4vw, 2.3rem); }
+    h2 { font-size: clamp(1.35rem, 3vw, 1.8rem); }
+    h3 { margin-bottom: 10px; }
+
+    .subtitle { color: var(--muted); margin: 4px 0 0; font-weight: 700; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      backdrop-filter: blur(12px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .col-3 { grid-column: span 3; }
+    .col-4 { grid-column: span 4; }
+    .col-5 { grid-column: span 5; }
+    .col-6 { grid-column: span 6; }
+    .col-7 { grid-column: span 7; }
+    .col-8 { grid-column: span 8; }
+    .col-12 { grid-column: span 12; }
+
+    .home-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: clamp(24px, 5vw, 54px) 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 9vw, 5.8rem);
+      line-height: 1;
+      margin-bottom: 14px;
+      letter-spacing: -0.08em;
+    }
+
+    .hero-desc {
+      margin: 0 auto 20px;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .hidden { display: none !important; }
+
+    .stack { display: grid; gap: 12px; }
+    .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .between { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-weight: 900;
+    }
+
+    .big-number {
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 1000;
+      letter-spacing: -0.04em;
+    }
+
+    .timer {
+      color: var(--primary-dark);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .question-box {
+      text-align: center;
+      padding: clamp(24px, 4vw, 46px);
+      border-radius: 28px;
+      background: linear-gradient(135deg, #ffffff, #eef2ff);
+      border: 2px solid #e0e7ff;
+    }
+
+    .front-word {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      font-size: clamp(4rem, 12vw, 8rem);
+      font-weight: 1000;
+      letter-spacing: -0.08em;
+      line-height: 1;
+    }
+
+    .blank {
+      color: #c4b5fd;
+      letter-spacing: 0;
+    }
+
+    .hint-box {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #92400e;
+      font-weight: 900;
+    }
+
+    .list {
+      display: grid;
+      gap: 8px;
+      max-height: 360px;
+      overflow: auto;
+      padding-right: 2px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .item strong { word-break: break-word; }
+    .muted { color: var(--muted); }
+    .ok { color: var(--green); font-weight: 1000; }
+    .bad { color: var(--red); font-weight: 1000; }
+
+    .rank-card {
+      display: grid;
+      gap: 10px;
+    }
+
+    .rank-row {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 14px;
+      border-radius: 18px;
+      background: white;
+      border: 1px solid var(--line);
+      font-weight: 950;
+    }
+
+    .rank-medal { font-size: 1.7rem; }
+
+    .message {
+      min-height: 24px;
+      color: var(--muted);
+      font-weight: 850;
+    }
+
+    .warning {
+      border: 1px solid #fca5a5;
+      background: #fef2f2;
+      color: #991b1b;
+      padding: 14px 16px;
+      border-radius: 16px;
+      font-weight: 850;
+      line-height: 1.5;
+    }
+
+    .success {
+      border: 1px solid #86efac;
+      background: #f0fdf4;
+      color: #166534;
+      padding: 14px 16px;
+      border-radius: 16px;
+      font-weight: 850;
+      line-height: 1.5;
+    }
+
+    .qr-wrap {
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+      word-break: break-all;
+      text-align: center;
+    }
+
+    .qr-wrap img {
+      width: 180px;
+      height: 180px;
+      border-radius: 16px;
+      background: white;
+      padding: 8px;
+      border: 1px solid var(--line);
+    }
+
+    .input-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+    }
+
+    .confetti {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 50;
+    }
+
+    .confetti i {
+      position: absolute;
+      top: -20px;
+      width: 10px;
+      height: 18px;
+      background: hsl(var(--hue), 90%, 60%);
+      transform: rotate(var(--rot));
+      animation: fall 1400ms linear forwards;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(calc(var(--rot) + 360deg)); opacity: 0.9; }
+    }
+
+    @media (max-width: 860px) {
+      .home-grid { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-12 { grid-column: auto; }
+      .topbar { align-items: flex-start; }
+      .input-row { grid-template-columns: 1fr; }
+      .rank-row { grid-template-columns: 44px 1fr auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="confetti" id="confetti"></div>
+
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">🎯</div>
+        <div>
+          <h1>4글자 퀴즈</h1>
+          <p class="subtitle">앞 2글자를 보고 뒤 2글자를 입력하세요</p>
+        </div>
+      </div>
+      <button class="btn-secondary btn-small" id="homeBtn">처음 화면</button>
+    </header>
+
+    <section class="warning hidden" id="setupWarning"></section>
+
+    <section class="card hero" id="homeView">
+      <div class="hero-title">__ __</div>
+      <p class="hero-desc">AI가 만든 앞 2글자 문제를 보고, 학생들이 뒤 2글자를 빠르게 입력하는 실시간 수업 게임입니다.</p>
+      <p class="muted"><strong>소리가 나지 않으면 화면을 한 번 클릭하거나 터치해 주세요.</strong></p>
+      <div class="home-grid">
+        <button id="goTeacherBtn">강사로 입장</button>
+        <button class="btn-green" id="goStudentBtn">학생으로 입장</button>
+      </div>
+    </section>
+
+    <section class="card hidden" id="teacherLoginView">
+      <h2>강사 입장</h2>
+      <p class="muted">강사 비밀번호를 입력하세요.</p>
+      <div class="input-row">
+        <input id="teacherPasswordInput" type="password" autocomplete="current-password" placeholder="강사 비밀번호" />
+        <button id="teacherLoginBtn">입장</button>
+      </div>
+      <p class="message" id="teacherLoginMsg"></p>
+    </section>
+
+    <section class="hidden" id="teacherView">
+      <div class="grid">
+        <div class="card col-8 stack">
+          <div class="between">
+            <div>
+              <h2>강사 화면</h2>
+              <p class="subtitle">게임 상태: <span id="teacherStatus">-</span></p>
+            </div>
+            <div class="pill">남은 시간 <span class="timer" id="teacherTimer">--:--</span></div>
+          </div>
+
+          <div class="grid">
+            <label class="col-6 stack">
+              <strong>게임 시간(초)</strong>
+              <input id="durationInput" type="number" min="10" max="3600" value="120" />
+            </label>
+            <label class="col-6 stack">
+              <strong>생성할 문제 수</strong>
+              <input id="questionCountInput" type="number" min="5" max="50" value="20" />
+            </label>
+          </div>
+
+          <div class="row">
+            <button class="btn-green" id="startGameBtn">게임 시작</button>
+            <button id="nextQuestionBtn">다음 문제</button>
+            <button class="btn-yellow" id="showHintBtn">힌트 공개</button>
+            <button class="btn-secondary" id="pauseBtn">일시정지</button>
+            <button class="btn-secondary" id="resumeBtn">재개</button>
+            <button class="btn-red" id="finishBtn">강제 종료</button>
+            <button class="btn-red" id="resetBtn">초기화</button>
+          </div>
+
+          <p class="message" id="teacherMsg"></p>
+
+          <div class="question-box">
+            <p class="pill" id="questionMeta">문제 대기 중</p>
+            <div class="front-word"><span id="teacherFront">__</span><span class="blank">__</span></div>
+            <div class="hint-box hidden" id="teacherAnswerBox"></div>
+          </div>
+        </div>
+
+        <div class="card col-4 stack">
+          <h3>학생 입장</h3>
+          <div class="qr-wrap">
+            <img id="qrImage" alt="학생 입장 QR 코드" />
+            <strong id="studentLinkText"></strong>
+            <button class="btn-secondary btn-small" id="copyLinkBtn">링크 복사</button>
+          </div>
+        </div>
+
+        <div class="card col-4 stack">
+          <h3>참가자 <span id="playerCount">0</span>명</h3>
+          <div class="list" id="playerList"></div>
+        </div>
+
+        <div class="card col-4 stack">
+          <h3>점수판</h3>
+          <div class="list" id="scoreList"></div>
+        </div>
+
+        <div class="card col-4 stack">
+          <h3>점수 수정</h3>
+          <div class="list" id="scoreEditList"></div>
+        </div>
+
+        <div class="card col-12 stack">
+          <h3>이번 문제 제출 현황</h3>
+          <div class="list" id="submissionList"></div>
+        </div>
+
+        <div class="card col-12 stack hidden" id="teacherFinalCard">
+          <h2>최종 TOP 3</h2>
+          <div class="rank-card" id="teacherFinalRank"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card hidden" id="studentJoinView">
+      <h2>학생 입장</h2>
+      <p class="muted">닉네임을 입력하고 입장하세요.</p>
+      <div class="input-row">
+        <input id="nicknameInput" type="text" maxlength="18" placeholder="예: 민준" />
+        <button class="btn-green" id="joinBtn">입장하기</button>
+      </div>
+      <p class="message" id="joinMsg"></p>
+    </section>
+
+    <section class="hidden" id="studentView">
+      <div class="grid">
+        <div class="card col-12 between">
+          <div>
+            <h2><span id="studentName">학생</span> 님</h2>
+            <p class="subtitle">내 점수: <strong id="myScore">0</strong>점</p>
+          </div>
+          <div class="pill">남은 시간 <span class="timer" id="studentTimer">--:--</span></div>
+        </div>
+
+        <div class="card col-12 stack">
+          <p class="pill" id="studentStatus">대기 중</p>
+          <div class="question-box">
+            <div class="front-word"><span id="studentFront">__</span><span class="blank">__</span></div>
+            <div class="hint-box hidden" id="studentHintBox"></div>
+          </div>
+          <div class="input-row" id="answerArea">
+            <input id="answerInput" type="text" maxlength="10" placeholder="뒤 2글자 입력" />
+            <button id="submitAnswerBtn">제출</button>
+          </div>
+          <p class="message" id="answerMsg"></p>
+        </div>
+
+        <div class="card col-12 stack hidden" id="studentFinalCard">
+          <h2>최종 TOP 3</h2>
+          <div class="rank-card" id="studentFinalRank"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+    import { getAuth, signInAnonymously, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+    import {
+      getDatabase,
+      ref,
+      set,
+      update,
+      onValue,
+      get,
+      remove,
+      runTransaction,
+      serverTimestamp
+    } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js';
+
+    const firebaseConfig = {
+      apiKey: 'AIzaSyBCg7wgZKbzFqlyli1QKVOXwCeEbHXcd8s',
+      authDomain: 'four-word-quiz.firebaseapp.com',
+      databaseURL: 'https://four-word-quiz-default-rtdb.asia-southeast1.firebasedatabase.app',
+      projectId: 'four-word-quiz',
+      storageBucket: 'four-word-quiz.firebasestorage.app',
+      messagingSenderId: '1021275958261',
+      appId: '1:1021275958261:web:49325f95fd5f5cbff58ebc'
+    };
+
+    const ROOM_ID = 'main';
+    const roomPath = `rooms/${ROOM_ID}`;
+    const $ = (id) => document.getElementById(id);
+
+    const views = {
+      home: $('homeView'),
+      teacherLogin: $('teacherLoginView'),
+      teacher: $('teacherView'),
+      studentJoin: $('studentJoinView'),
+      student: $('studentView')
+    };
+
+    let app;
+    let auth;
+    let db;
+    let uid = null;
+    let room = {};
+    let myNickname = localStorage.getItem('fourWordQuizNickname') || '';
+    let isTeacher = false;
+    let audioUnlocked = false;
+    let timerHandle = null;
+    let finalCelebrated = false;
+
+    function isFirebaseReady() {
+      return !Object.values(firebaseConfig).some((value) => String(value).startsWith('PASTE_'));
+    }
+
+    function showView(name) {
+      Object.values(views).forEach((view) => view.classList.add('hidden'));
+      views[name].classList.remove('hidden');
+    }
+
+    function setText(id, text) {
+      $(id).textContent = text;
+    }
+
+    function showMessage(id, text, type = '') {
+      const el = $(id);
+      el.textContent = text || '';
+      el.className = `message ${type}`;
+    }
+
+    function normalizeText(value) {
+      return String(value || '')
+        .trim()
+        .replace(/[\s\-_/.,!?~`'"“”‘’()\[\]{}:;·]/g, '')
+        .toLowerCase();
+    }
+
+    function formatTime(seconds) {
+      const safe = Math.max(0, Math.floor(seconds || 0));
+      const min = String(Math.floor(safe / 60)).padStart(2, '0');
+      const sec = String(safe % 60).padStart(2, '0');
+      return `${min}:${sec}`;
+    }
+
+    function getPlayers() {
+      return room.players || {};
+    }
+
+    function getPlayerArray() {
+      return Object.entries(getPlayers()).map(([id, player]) => ({ id, ...player }));
+    }
+
+    function getQuestions() {
+      if (!room.questions) return [];
+      if (Array.isArray(room.questions)) return room.questions.filter(Boolean);
+      return Object.keys(room.questions)
+        .sort((a, b) => Number(a) - Number(b))
+        .map((key) => room.questions[key]);
+    }
+
+    function getCurrentIndex() {
+      return Number(room.current?.questionIndex ?? 0);
+    }
+
+    function getCurrentQuestion() {
+      return getQuestions()[getCurrentIndex()] || null;
+    }
+
+    function getCurrentSubmissions() {
+      const index = getCurrentIndex();
+      return room.submissions?.[index] || {};
+    }
+
+    function getRemainingSeconds() {
+      if (!room || !room.gameStatus) return 0;
+      if (room.gameStatus === 'paused') return Number(room.pausedRemainingSec || 0);
+      if (room.gameStatus !== 'playing' && room.gameStatus !== 'generating') return 0;
+      const startedAt = Number(room.startedAt || 0);
+      const durationSec = Number(room.durationSec || 0);
+      if (!startedAt || !durationSec) return 0;
+      return Math.max(0, Math.ceil((startedAt + durationSec * 1000 - Date.now()) / 1000));
+    }
+
+    function unlockAudio() {
+      audioUnlocked = true;
+    }
+
+    function tone(freq = 440, duration = 0.12, type = 'sine', gainValue = 0.05, delay = 0) {
+      if (!audioUnlocked) return;
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      const ctx = new AudioContext();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = type;
+      osc.frequency.value = freq;
+      gain.gain.value = gainValue;
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      const start = ctx.currentTime + delay;
+      osc.start(start);
+      gain.gain.exponentialRampToValueAtTime(0.001, start + duration);
+      osc.stop(start + duration + 0.02);
+      setTimeout(() => ctx.close().catch(() => {}), (delay + duration + 0.08) * 1000);
+    }
+
+    const sfx = {
+      click() { tone(520, 0.05, 'square', 0.025); },
+      start() { tone(440, 0.08); tone(660, 0.1, 'sine', 0.05, 0.09); },
+      correct() { tone(660, 0.08); tone(880, 0.12, 'sine', 0.05, 0.09); },
+      wrong() { tone(190, 0.18, 'sawtooth', 0.04); },
+      end() { tone(523, 0.12); tone(659, 0.12, 'sine', 0.05, 0.13); tone(784, 0.18, 'sine', 0.05, 0.26); },
+      fanfare() { [523, 659, 784, 1046].forEach((freq, i) => tone(freq, 0.13, 'triangle', 0.055, i * 0.12)); }
+    };
+
+    function confetti() {
+      const wrap = $('confetti');
+      wrap.innerHTML = '';
+      for (let i = 0; i < 120; i += 1) {
+        const piece = document.createElement('i');
+        piece.style.left = `${Math.random() * 100}%`;
+        piece.style.setProperty('--hue', Math.floor(Math.random() * 360));
+        piece.style.setProperty('--rot', `${Math.random() * 360}deg`);
+        piece.style.animationDelay = `${Math.random() * 300}ms`;
+        wrap.appendChild(piece);
+      }
+      setTimeout(() => { wrap.innerHTML = ''; }, 2200);
+    }
+
+    async function initFirebase() {
+      if (!isFirebaseReady()) {
+        $('setupWarning').classList.remove('hidden');
+        $('setupWarning').innerHTML = '<strong>Firebase 설정 필요:</strong> index.html 안의 firebaseConfig 자리(PASTE_...)를 실제 값으로 바꿔야 게임이 작동합니다.';
+        return;
+      }
+
+      app = initializeApp(firebaseConfig);
+      auth = getAuth(app);
+      db = getDatabase(app);
+
+      onAuthStateChanged(auth, (user) => {
+        uid = user?.uid || null;
+        if (uid) listenRoom();
+      });
+
+      await signInAnonymously(auth);
+    }
+
+    function listenRoom() {
+      onValue(ref(db, roomPath), (snapshot) => {
+        room = snapshot.val() || {};
+        renderAll();
+      });
+    }
+
+    async function ensureTeacherRoom() {
+      const roomRef = ref(db, roomPath);
+      const snapshot = await get(roomRef);
+      if (!snapshot.exists()) {
+        await set(roomRef, {
+          gameType: 'fourWordQuiz',
+          gameStatus: 'waiting',
+          hostUid: uid,
+          createdAt: Date.now(),
+          settings: {
+            durationSec: Number($('durationInput').value || 120),
+            questionCount: Number($('questionCountInput').value || 20)
+          },
+          current: { questionIndex: 0, showHint: false }
+        });
+      } else {
+        await update(roomRef, { hostUid: uid, gameType: 'fourWordQuiz' });
+      }
+    }
+
+    async function teacherLogin() {
+      sfx.click();
+      showMessage('teacherLoginMsg', '확인 중입니다...');
+      try {
+        const password = $('teacherPasswordInput').value;
+        const response = await fetch('/api/check-teacher', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password })
+        });
+        const data = await response.json();
+        if (!response.ok || !data.ok) throw new Error(data.error || '입장할 수 없습니다.');
+        isTeacher = true;
+        await ensureTeacherRoom();
+        showView('teacher');
+        setupStudentLink();
+        showMessage('teacherMsg', '강사로 입장했습니다.', 'ok');
+      } catch (error) {
+        showMessage('teacherLoginMsg', error.message || '비밀번호 확인 중 오류가 발생했습니다.', 'bad');
+      }
+    }
+
+    function setupStudentLink() {
+      const studentUrl = `${window.location.origin}${window.location.pathname}?mode=student`;
+      $('studentLinkText').textContent = studentUrl;
+      $('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(studentUrl)}`;
+    }
+
+    async function joinStudent() {
+      sfx.click();
+      const nickname = $('nicknameInput').value.trim();
+      if (!nickname) {
+        showMessage('joinMsg', '닉네임을 입력하세요.', 'bad');
+        return;
+      }
+      if (!uid || !db) {
+        showMessage('joinMsg', 'Firebase 연결을 확인 중입니다. 잠시 후 다시 눌러 주세요.', 'bad');
+        return;
+      }
+      myNickname = nickname;
+      localStorage.setItem('fourWordQuizNickname', nickname);
+      await update(ref(db, `${roomPath}/players/${uid}`), {
+        nickname,
+        score: room.players?.[uid]?.score || 0,
+        joinedAt: room.players?.[uid]?.joinedAt || Date.now(),
+        lastActiveAt: Date.now()
+      });
+      showView('student');
+      renderAll();
+    }
+
+    async function startGame() {
+      sfx.start();
+      const durationSec = Math.max(10, Number($('durationInput').value || 120));
+      const questionCount = Math.min(50, Math.max(5, Number($('questionCountInput').value || 20)));
+      showMessage('teacherMsg', 'AI가 문제를 생성하고 있습니다...');
+      await update(ref(db, roomPath), {
+        gameStatus: 'generating',
+        settings: { durationSec, questionCount },
+        durationSec,
+        startedAt: Date.now(),
+        pausedRemainingSec: null,
+        current: { questionIndex: 0, showHint: false },
+        submissions: null,
+        submissionCounters: null,
+        ranking: null
+      });
+
+      const players = getPlayerArray();
+      const resetScores = {};
+      players.forEach((player) => {
+        resetScores[`players/${player.id}/score`] = 0;
+      });
+      if (players.length) await update(ref(db, roomPath), resetScores);
+
+      try {
+        const response = await fetch('/api/generate-words', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ count: questionCount })
+        });
+        const data = await response.json();
+        if (!response.ok || !data.ok) throw new Error(data.error || '문제 생성 실패');
+
+        await update(ref(db, roomPath), {
+          questions: data.questions,
+          gameStatus: 'playing',
+          startedAt: Date.now(),
+          durationSec,
+          current: { questionIndex: 0, showHint: false }
+        });
+        showMessage('teacherMsg', '게임을 시작했습니다.', 'ok');
+      } catch (error) {
+        await update(ref(db, roomPath), { gameStatus: 'waiting' });
+        showMessage('teacherMsg', error.message || '문제를 생성하지 못했습니다.', 'bad');
+      }
+    }
+
+    async function nextQuestion() {
+      sfx.click();
+      const questions = getQuestions();
+      const nextIndex = getCurrentIndex() + 1;
+      if (!questions.length) {
+        showMessage('teacherMsg', '생성된 문제가 없습니다. 게임 시작을 먼저 눌러 주세요.', 'bad');
+        return;
+      }
+      if (nextIndex >= questions.length) {
+        await finishGame('문제를 모두 사용했습니다.');
+        return;
+      }
+      await update(ref(db, `${roomPath}/current`), {
+        questionIndex: nextIndex,
+        showHint: false
+      });
+      showMessage('teacherMsg', `${nextIndex + 1}번 문제로 이동했습니다.`, 'ok');
+    }
+
+    async function showHint() {
+      sfx.click();
+      await update(ref(db, `${roomPath}/current`), { showHint: true });
+    }
+
+    async function pauseGame() {
+      sfx.click();
+      const remaining = getRemainingSeconds();
+      if (room.gameStatus !== 'playing') return;
+      await update(ref(db, roomPath), {
+        gameStatus: 'paused',
+        pausedRemainingSec: remaining
+      });
+    }
+
+    async function resumeGame() {
+      sfx.click();
+      if (room.gameStatus !== 'paused') return;
+      const remaining = Number(room.pausedRemainingSec || 0);
+      await update(ref(db, roomPath), {
+        gameStatus: 'playing',
+        startedAt: Date.now(),
+        durationSec: Math.max(1, remaining),
+        pausedRemainingSec: null
+      });
+    }
+
+    async function finishGame(reason = '게임이 종료되었습니다.') {
+      const ranking = getPlayerArray()
+        .sort((a, b) => (Number(b.score || 0) - Number(a.score || 0)) || String(a.nickname || '').localeCompare(String(b.nickname || ''), 'ko'))
+        .slice(0, 3)
+        .map((player, index) => ({
+          rank: index + 1,
+          uid: player.id,
+          nickname: player.nickname || '이름 없음',
+          score: Number(player.score || 0)
+        }));
+
+      await update(ref(db, roomPath), {
+        gameStatus: 'finished',
+        finishedAt: Date.now(),
+        finishReason: reason,
+        ranking
+      });
+      sfx.end();
+      confetti();
+    }
+
+    async function resetGame() {
+      sfx.click();
+      if (!confirm('게임 데이터를 초기화할까요? 참가자와 점수도 삭제됩니다.')) return;
+      await set(ref(db, roomPath), {
+        gameType: 'fourWordQuiz',
+        gameStatus: 'waiting',
+        hostUid: uid,
+        createdAt: Date.now(),
+        settings: {
+          durationSec: Number($('durationInput').value || 120),
+          questionCount: Number($('questionCountInput').value || 20)
+        },
+        current: { questionIndex: 0, showHint: false }
+      });
+      finalCelebrated = false;
+    }
+
+    function isCorrectAnswer(value, question) {
+      const normalized = normalizeText(value);
+      const answers = question?.normalizedAnswers || (question?.acceptableAnswers || []).map(normalizeText);
+      return answers.includes(normalized);
+    }
+
+    async function submitAnswer() {
+      sfx.click();
+      const question = getCurrentQuestion();
+      const status = room.gameStatus;
+      const value = $('answerInput').value.trim();
+      const index = getCurrentIndex();
+
+      if (status !== 'playing') {
+        showMessage('answerMsg', '지금은 제출할 수 없습니다.', 'bad');
+        return;
+      }
+      if (!question) {
+        showMessage('answerMsg', '아직 문제가 없습니다.', 'bad');
+        return;
+      }
+      if (!value) {
+        showMessage('answerMsg', '답을 입력하세요.', 'bad');
+        return;
+      }
+
+      const existing = room.submissions?.[index]?.[uid];
+      if (existing) {
+        showMessage('answerMsg', '이 문제는 이미 제출했습니다.', 'bad');
+        return;
+      }
+
+      const correct = isCorrectAnswer(value, question);
+      let rank = null;
+      let points = 0;
+
+      if (correct) {
+        const countRef = ref(db, `${roomPath}/submissionCounters/${index}/correctCount`);
+        const transactionResult = await runTransaction(countRef, (current) => Number(current || 0) + 1);
+        rank = Number(transactionResult.snapshot.val() || 1);
+        const participantCount = Math.max(1, getPlayerArray().length);
+        points = Math.max(1, participantCount - rank + 1);
+      }
+
+      await set(ref(db, `${roomPath}/submissions/${index}/${uid}`), {
+        nickname: myNickname || room.players?.[uid]?.nickname || '이름 없음',
+        value,
+        correct,
+        rank,
+        points,
+        submittedAt: Date.now(),
+        manual: false
+      });
+
+      if (correct && points > 0) {
+        await runTransaction(ref(db, `${roomPath}/players/${uid}/score`), (current) => Number(current || 0) + points);
+        showMessage('answerMsg', `정답입니다! +${points}점`, 'ok');
+        sfx.correct();
+      } else {
+        showMessage('answerMsg', '오답입니다. 이 문제는 다시 제출할 수 없습니다.', 'bad');
+        sfx.wrong();
+      }
+
+      $('answerInput').value = '';
+      renderAll();
+    }
+
+    async function markCorrect(targetUid) {
+      sfx.correct();
+      const index = getCurrentIndex();
+      const submission = room.submissions?.[index]?.[targetUid];
+      if (!submission || submission.correct) return;
+      const countRef = ref(db, `${roomPath}/submissionCounters/${index}/correctCount`);
+      const transactionResult = await runTransaction(countRef, (current) => Number(current || 0) + 1);
+      const rank = Number(transactionResult.snapshot.val() || 1);
+      const participantCount = Math.max(1, getPlayerArray().length);
+      const points = Math.max(1, participantCount - rank + 1);
+      await update(ref(db, `${roomPath}/submissions/${index}/${targetUid}`), {
+        correct: true,
+        rank,
+        points,
+        manual: true,
+        manuallyCorrectedAt: Date.now()
+      });
+      await runTransaction(ref(db, `${roomPath}/players/${targetUid}/score`), (current) => Number(current || 0) + points);
+    }
+
+    async function saveScore(targetUid, score) {
+      await set(ref(db, `${roomPath}/players/${targetUid}/score`), Number(score || 0));
+    }
+
+    function renderTeacher() {
+      if (!isTeacher) return;
+      setupStudentLink();
+      const statusMap = {
+        waiting: '대기 중',
+        generating: '문제 생성 중',
+        playing: '진행 중',
+        paused: '일시정지',
+        finished: '종료'
+      };
+      setText('teacherStatus', statusMap[room.gameStatus] || '대기 중');
+      const players = getPlayerArray();
+      setText('playerCount', players.length);
+
+      const question = getCurrentQuestion();
+      const index = getCurrentIndex();
+      const questions = getQuestions();
+      setText('questionMeta', question ? `${index + 1} / ${questions.length} · ${question.category || '혼합'}` : '문제 대기 중');
+      setText('teacherFront', question?.front || '__');
+
+      const answerBox = $('teacherAnswerBox');
+      if (question) {
+        answerBox.classList.remove('hidden');
+        answerBox.innerHTML = `정답: <strong>${question.answer}</strong> · 완성 단어: <strong>${question.fullWord}</strong><br>허용 답안: ${(question.acceptableAnswers || []).join(', ')}<br>힌트: ${question.hint}`;
+      } else {
+        answerBox.classList.add('hidden');
+        answerBox.innerHTML = '';
+      }
+
+      $('playerList').innerHTML = players.length
+        ? players.map((player) => `<div class="item"><strong>${escapeHtml(player.nickname || '이름 없음')}</strong><span>${Number(player.score || 0)}점</span></div>`).join('')
+        : '<p class="muted">아직 입장한 학생이 없습니다.</p>';
+
+      const sorted = [...players].sort((a, b) => Number(b.score || 0) - Number(a.score || 0));
+      $('scoreList').innerHTML = sorted.length
+        ? sorted.map((player, idx) => `<div class="item"><strong>${idx + 1}. ${escapeHtml(player.nickname || '이름 없음')}</strong><span>${Number(player.score || 0)}점</span></div>`).join('')
+        : '<p class="muted">점수 기록이 없습니다.</p>';
+
+      $('scoreEditList').innerHTML = sorted.length
+        ? sorted.map((player) => `
+          <div class="item">
+            <strong>${escapeHtml(player.nickname || '이름 없음')}</strong>
+            <div class="row">
+              <input id="score-${player.id}" type="number" value="${Number(player.score || 0)}" style="width:90px;padding:8px 10px;border-radius:10px" />
+              <button class="btn-small" data-score-save="${player.id}">저장</button>
+            </div>
+          </div>`).join('')
+        : '<p class="muted">수정할 학생이 없습니다.</p>';
+
+      document.querySelectorAll('[data-score-save]').forEach((button) => {
+        button.onclick = () => saveScore(button.dataset.scoreSave, $(`score-${button.dataset.scoreSave}`).value);
+      });
+
+      const submissions = Object.entries(getCurrentSubmissions()).map(([id, sub]) => ({ id, ...sub }));
+      submissions.sort((a, b) => Number(a.submittedAt || 0) - Number(b.submittedAt || 0));
+      $('submissionList').innerHTML = submissions.length
+        ? submissions.map((sub) => `
+          <div class="item">
+            <div>
+              <strong>${escapeHtml(sub.nickname || '이름 없음')}</strong>
+              <div class="muted">제출: ${escapeHtml(sub.value || '')}</div>
+            </div>
+            <div class="row">
+              <span class="${sub.correct ? 'ok' : 'bad'}">${sub.correct ? `정답 ${sub.rank ? `#${sub.rank}` : ''} +${Number(sub.points || 0)}` : '오답'}</span>
+              ${sub.correct ? '' : `<button class="btn-small btn-green" data-mark-correct="${sub.id}">정답 처리</button>`}
+            </div>
+          </div>`).join('')
+        : '<p class="muted">아직 제출한 학생이 없습니다.</p>';
+
+      document.querySelectorAll('[data-mark-correct]').forEach((button) => {
+        button.onclick = () => markCorrect(button.dataset.markCorrect);
+      });
+
+      renderRank('teacherFinalRank');
+      $('teacherFinalCard').classList.toggle('hidden', room.gameStatus !== 'finished');
+    }
+
+    function renderStudent() {
+      if (!uid) return;
+      const player = room.players?.[uid];
+      if (!player && views.student.classList.contains('hidden')) return;
+      setText('studentName', player?.nickname || myNickname || '학생');
+      setText('myScore', Number(player?.score || 0));
+
+      const statusMap = {
+        waiting: '대기 중입니다. 선생님이 게임을 시작하면 문제가 나옵니다.',
+        generating: 'AI가 문제를 만들고 있습니다.',
+        playing: '문제를 풀어 보세요.',
+        paused: '잠시 멈춤 상태입니다.',
+        finished: '게임이 종료되었습니다.'
+      };
+      setText('studentStatus', statusMap[room.gameStatus] || '대기 중');
+
+      const question = getCurrentQuestion();
+      setText('studentFront', question?.front || '__');
+
+      const hintBox = $('studentHintBox');
+      if (question && room.current?.showHint) {
+        hintBox.classList.remove('hidden');
+        hintBox.textContent = `힌트: ${question.hint}`;
+      } else {
+        hintBox.classList.add('hidden');
+        hintBox.textContent = '';
+      }
+
+      const submitted = room.submissions?.[getCurrentIndex()]?.[uid];
+      const canSubmit = room.gameStatus === 'playing' && question && !submitted;
+      $('answerInput').disabled = !canSubmit;
+      $('submitAnswerBtn').disabled = !canSubmit;
+      $('answerArea').classList.toggle('hidden', room.gameStatus === 'finished');
+
+      if (submitted) {
+        const msg = submitted.correct
+          ? `제출 완료: 정답입니다! +${Number(submitted.points || 0)}점`
+          : '제출 완료: 오답입니다. 이 문제는 다시 제출할 수 없습니다.';
+        showMessage('answerMsg', msg, submitted.correct ? 'ok' : 'bad');
+      } else if (room.gameStatus === 'playing' && question) {
+        showMessage('answerMsg', '뒤 2글자를 입력하고 Enter를 누르세요. 한 문제에 한 번만 제출할 수 있습니다.');
+      } else {
+        showMessage('answerMsg', '');
+      }
+
+      renderRank('studentFinalRank');
+      $('studentFinalCard').classList.toggle('hidden', room.gameStatus !== 'finished');
+
+      if (room.gameStatus === 'finished' && !finalCelebrated) {
+        const top = room.ranking || [];
+        if (top.some((ranker) => ranker.uid === uid)) {
+          sfx.fanfare();
+          confetti();
+        } else {
+          sfx.end();
+        }
+        finalCelebrated = true;
+      }
+      if (room.gameStatus !== 'finished') finalCelebrated = false;
+    }
+
+    function renderRank(targetId) {
+      const ranking = room.ranking || [];
+      const medals = ['🏆', '🥈', '🥉'];
+      $(targetId).innerHTML = ranking.length
+        ? ranking.map((item, idx) => `
+          <div class="rank-row">
+            <div class="rank-medal">${medals[idx] || `${idx + 1}`}</div>
+            <div>${escapeHtml(item.nickname || '이름 없음')}</div>
+            <div>${Number(item.score || 0)}점</div>
+          </div>`).join('')
+        : '<p class="muted">아직 순위가 없습니다.</p>';
+    }
+
+    function renderTimers() {
+      const remaining = getRemainingSeconds();
+      setText('teacherTimer', formatTime(remaining));
+      setText('studentTimer', formatTime(remaining));
+      if (isTeacher && room.gameStatus === 'playing' && remaining <= 0 && Number(room.startedAt || 0)) {
+        finishGame('시간이 종료되었습니다.');
+      }
+    }
+
+    function renderAll() {
+      renderTeacher();
+      renderStudent();
+      renderTimers();
+    }
+
+    function escapeHtml(value) {
+      return String(value || '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    function bindEvents() {
+      document.addEventListener('click', unlockAudio, { once: true });
+      document.addEventListener('touchstart', unlockAudio, { once: true });
+
+      $('homeBtn').onclick = () => { sfx.click(); showView('home'); };
+      $('goTeacherBtn').onclick = () => { sfx.click(); showView('teacherLogin'); $('teacherPasswordInput').focus(); };
+      $('goStudentBtn').onclick = () => { sfx.click(); showView('studentJoin'); $('nicknameInput').focus(); };
+      $('teacherLoginBtn').onclick = teacherLogin;
+      $('teacherPasswordInput').addEventListener('keydown', (event) => { if (event.key === 'Enter') teacherLogin(); });
+      $('joinBtn').onclick = joinStudent;
+      $('nicknameInput').addEventListener('keydown', (event) => { if (event.key === 'Enter') joinStudent(); });
+      $('submitAnswerBtn').onclick = submitAnswer;
+      $('answerInput').addEventListener('keydown', (event) => { if (event.key === 'Enter') submitAnswer(); });
+      $('startGameBtn').onclick = startGame;
+      $('nextQuestionBtn').onclick = nextQuestion;
+      $('showHintBtn').onclick = showHint;
+      $('pauseBtn').onclick = pauseGame;
+      $('resumeBtn').onclick = resumeGame;
+      $('finishBtn').onclick = () => finishGame('강사가 게임을 종료했습니다.');
+      $('resetBtn').onclick = resetGame;
+      $('copyLinkBtn').onclick = async () => {
+        sfx.click();
+        await navigator.clipboard.writeText($('studentLinkText').textContent);
+        showMessage('teacherMsg', '학생 입장 링크를 복사했습니다.', 'ok');
+      };
+    }
+
+    function bootByUrl() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('mode') === 'student') {
+        showView('studentJoin');
+        if (myNickname) $('nicknameInput').value = myNickname;
+      } else {
+        showView('home');
+      }
+    }
+
+    bindEvents();
+    bootByUrl();
+    initFirebase();
+    timerHandle = setInterval(renderTimers, 500);
+  </script>
+</body>
+</html>
