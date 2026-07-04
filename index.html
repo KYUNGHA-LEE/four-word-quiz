@@ -213,9 +213,21 @@
       line-height: 1;
     }
 
-    .blank {
-      color: #c4b5fd;
+    .answer-slots {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: clamp(10px, 2vw, 22px);
+      margin-left: clamp(8px, 1.5vw, 18px);
       letter-spacing: 0;
+    }
+
+    .letter-slot {
+      display: inline-block;
+      width: clamp(54px, 8vw, 105px);
+      height: clamp(14px, 2vw, 24px);
+      border-bottom: clamp(8px, 1.2vw, 14px) solid #c4b5fd;
+      border-radius: 999px;
+      transform: translateY(-0.08em);
     }
 
     .hint-box {
@@ -249,6 +261,9 @@
 
     .item strong { word-break: break-word; }
     .muted { color: var(--muted); }
+    .help { margin: -4px 0 0; color: var(--muted); font-size: 0.92rem; font-weight: 750; line-height: 1.45; }
+    .check-row { display: flex; align-items: center; gap: 10px; font-weight: 900; color: var(--text); }
+    .check-row input { width: auto; }
     .ok { color: var(--green); font-weight: 1000; }
     .bad { color: var(--red); font-weight: 1000; }
 
@@ -401,14 +416,22 @@
           </div>
 
           <div class="grid">
-            <label class="col-6 stack">
-              <strong>게임 시간(초)</strong>
-              <input id="durationInput" type="number" min="10" max="3600" value="120" />
-            </label>
-            <label class="col-6 stack">
-              <strong>생성할 문제 수</strong>
-              <input id="questionCountInput" type="number" min="5" max="50" value="20" />
-            </label>
+            <div class="col-6 stack">
+              <label class="check-row"><input id="useTimerInput" type="checkbox" checked /> 시간으로 종료</label>
+              <label class="stack">
+                <strong>게임 시간(초)</strong>
+                <input id="durationInput" type="number" min="10" max="3600" value="120" />
+              </label>
+              <p class="help">체크를 끄면 시간 제한 없이 강사가 종료할 때까지 진행합니다.</p>
+            </div>
+            <div class="col-6 stack">
+              <label class="check-row"><input id="useQuestionLimitInput" type="checkbox" /> 문제 수로 종료</label>
+              <label class="stack">
+                <strong>문제 수</strong>
+                <input id="questionCountInput" type="number" min="5" max="50" value="20" />
+              </label>
+              <p class="help">체크를 끄면 이 숫자는 종료 조건이 아니라 한 번에 미리 생성할 문제 수입니다. 다 쓰면 다음 문제를 누를 때 추가 생성합니다.</p>
+            </div>
           </div>
 
           <div class="row">
@@ -425,7 +448,7 @@
 
           <div class="question-box">
             <p class="pill" id="questionMeta">문제 대기 중</p>
-            <div class="front-word"><span id="teacherFront">__</span><span class="blank">__</span></div>
+            <div class="front-word"><span id="teacherFront">__</span><span class="answer-slots" aria-label="뒤 2글자 빈칸"><span class="letter-slot"></span><span class="letter-slot"></span></span></div>
             <div class="hint-box hidden" id="teacherAnswerBox"></div>
           </div>
         </div>
@@ -489,7 +512,7 @@
         <div class="card col-12 stack">
           <p class="pill" id="studentStatus">대기 중</p>
           <div class="question-box">
-            <div class="front-word"><span id="studentFront">__</span><span class="blank">__</span></div>
+            <div class="front-word"><span id="studentFront">__</span><span class="answer-slots" aria-label="뒤 2글자 빈칸"><span class="letter-slot"></span><span class="letter-slot"></span></span></div>
             <div class="hint-box hidden" id="studentHintBox"></div>
           </div>
           <div class="input-row" id="answerArea">
@@ -617,8 +640,16 @@
       return room.submissions?.[index] || {};
     }
 
+    function isTimerEnabled() {
+      return room.settings?.useTimer !== false;
+    }
+
+    function isQuestionLimitEnabled() {
+      return room.settings?.useQuestionLimit === true;
+    }
+
     function getRemainingSeconds() {
-      if (!room || !room.gameStatus) return 0;
+      if (!room || !room.gameStatus || !isTimerEnabled()) return null;
       if (room.gameStatus === 'paused') return Number(room.pausedRemainingSec || 0);
       if (room.gameStatus !== 'playing' && room.gameStatus !== 'generating') return 0;
       const startedAt = Number(room.startedAt || 0);
@@ -709,7 +740,9 @@
           hostUid: uid,
           createdAt: Date.now(),
           settings: {
+            useTimer: $('useTimerInput')?.checked ?? true,
             durationSec: Number($('durationInput').value || 120),
+            useQuestionLimit: $('useQuestionLimitInput')?.checked ?? false,
             questionCount: Number($('questionCountInput').value || 20)
           },
           current: { questionIndex: 0, showHint: false }
@@ -772,13 +805,15 @@
 
     async function startGame() {
       sfx.start();
-      const durationSec = Math.max(10, Number($('durationInput').value || 120));
+      const useTimer = $('useTimerInput').checked;
+      const durationSec = useTimer ? Math.max(10, Number($('durationInput').value || 120)) : null;
+      const useQuestionLimit = $('useQuestionLimitInput').checked;
       const questionCount = Math.min(50, Math.max(5, Number($('questionCountInput').value || 20)));
       showMessage('teacherMsg', 'AI가 문제를 생성하고 있습니다...');
       await update(ref(db, roomPath), {
         gameStatus: 'generating',
-        settings: { durationSec, questionCount },
-        durationSec,
+        settings: { useTimer, durationSec: durationSec || 0, useQuestionLimit, questionCount },
+        durationSec: durationSec || null,
         startedAt: Date.now(),
         pausedRemainingSec: null,
         current: { questionIndex: 0, showHint: false },
@@ -807,7 +842,7 @@
           questions: data.questions,
           gameStatus: 'playing',
           startedAt: Date.now(),
-          durationSec,
+          durationSec: durationSec || null,
           current: { questionIndex: 0, showHint: false }
         });
         showMessage('teacherMsg', '게임을 시작했습니다.', 'ok');
@@ -817,17 +852,40 @@
       }
     }
 
+    async function generateMoreQuestions(batchSize) {
+      showMessage('teacherMsg', '문제를 추가로 생성하고 있습니다...');
+      const response = await fetch('/api/generate-words', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ count: batchSize })
+      });
+      const data = await response.json();
+      if (!response.ok || !data.ok) throw new Error(data.error || '문제 추가 생성 실패');
+      const merged = [...getQuestions(), ...data.questions];
+      await update(ref(db, roomPath), { questions: merged });
+      return merged;
+    }
+
     async function nextQuestion() {
       sfx.click();
-      const questions = getQuestions();
-      const nextIndex = getCurrentIndex() + 1;
+      let questions = getQuestions();
+      let nextIndex = getCurrentIndex() + 1;
       if (!questions.length) {
         showMessage('teacherMsg', '생성된 문제가 없습니다. 게임 시작을 먼저 눌러 주세요.', 'bad');
         return;
       }
       if (nextIndex >= questions.length) {
-        await finishGame('문제를 모두 사용했습니다.');
-        return;
+        if (isQuestionLimitEnabled()) {
+          await finishGame('정해진 문제를 모두 사용했습니다.');
+          return;
+        }
+        try {
+          const batchSize = Math.min(50, Math.max(5, Number(room.settings?.questionCount || $('questionCountInput').value || 20)));
+          questions = await generateMoreQuestions(batchSize);
+        } catch (error) {
+          showMessage('teacherMsg', error.message || '문제를 추가로 생성하지 못했습니다.', 'bad');
+          return;
+        }
       }
       await update(ref(db, `${roomPath}/current`), {
         questionIndex: nextIndex,
@@ -854,11 +912,11 @@
     async function resumeGame() {
       sfx.click();
       if (room.gameStatus !== 'paused') return;
-      const remaining = Number(room.pausedRemainingSec || 0);
+      const remaining = room.pausedRemainingSec;
       await update(ref(db, roomPath), {
         gameStatus: 'playing',
         startedAt: Date.now(),
-        durationSec: Math.max(1, remaining),
+        durationSec: remaining == null ? null : Math.max(1, Number(remaining || 0)),
         pausedRemainingSec: null
       });
     }
@@ -893,7 +951,9 @@
         hostUid: uid,
         createdAt: Date.now(),
         settings: {
+          useTimer: $('useTimerInput')?.checked ?? true,
           durationSec: Number($('durationInput').value || 120),
+          useQuestionLimit: $('useQuestionLimitInput')?.checked ?? false,
           questionCount: Number($('questionCountInput').value || 20)
         },
         current: { questionIndex: 0, showHint: false }
@@ -1009,7 +1069,8 @@
       const question = getCurrentQuestion();
       const index = getCurrentIndex();
       const questions = getQuestions();
-      setText('questionMeta', question ? `${index + 1} / ${questions.length} · ${question.category || '혼합'}` : '문제 대기 중');
+      const questionLimitLabel = isQuestionLimitEnabled() ? `${index + 1} / ${questions.length}` : `${index + 1}번 문제 · 준비 ${questions.length}개`;
+      setText('questionMeta', question ? `${questionLimitLabel} · ${question.category || '혼합'}` : '문제 대기 중');
       setText('teacherFront', question?.front || '__');
 
       const answerBox = $('teacherAnswerBox');
@@ -1145,9 +1206,10 @@
 
     function renderTimers() {
       const remaining = getRemainingSeconds();
-      setText('teacherTimer', formatTime(remaining));
-      setText('studentTimer', formatTime(remaining));
-      if (isTeacher && room.gameStatus === 'playing' && remaining <= 0 && Number(room.startedAt || 0)) {
+      const timerText = remaining == null ? '제한 없음' : formatTime(remaining);
+      setText('teacherTimer', timerText);
+      setText('studentTimer', timerText);
+      if (isTeacher && isTimerEnabled() && room.gameStatus === 'playing' && remaining <= 0 && Number(room.startedAt || 0)) {
         finishGame('시간이 종료되었습니다.');
       }
     }
@@ -1167,6 +1229,12 @@
         .replaceAll("'", '&#039;');
     }
 
+
+    function syncSettingInputs() {
+      const useTimer = $('useTimerInput').checked;
+      $('durationInput').disabled = !useTimer;
+      $('durationInput').closest('label').style.opacity = useTimer ? '1' : '0.45';
+    }
     function bindEvents() {
       document.addEventListener('click', unlockAudio, { once: true });
       document.addEventListener('touchstart', unlockAudio, { once: true });
@@ -1187,6 +1255,8 @@
       $('resumeBtn').onclick = resumeGame;
       $('finishBtn').onclick = () => finishGame('강사가 게임을 종료했습니다.');
       $('resetBtn').onclick = resetGame;
+      $('useTimerInput').onchange = syncSettingInputs;
+      syncSettingInputs();
       $('copyLinkBtn').onclick = async () => {
         sfx.click();
         await navigator.clipboard.writeText($('studentLinkText').textContent);
