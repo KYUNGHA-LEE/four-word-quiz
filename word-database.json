@@ -1,0 +1,2204 @@
+[
+  {
+    "id": "W001",
+    "front": "일석",
+    "answer": "이조",
+    "acceptableAnswers": [
+      "이조"
+    ],
+    "fullWord": "일석이조",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W002",
+    "front": "새옹",
+    "answer": "지마",
+    "acceptableAnswers": [
+      "지마"
+    ],
+    "fullWord": "새옹지마",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W003",
+    "front": "사필",
+    "answer": "귀정",
+    "acceptableAnswers": [
+      "귀정"
+    ],
+    "fullWord": "사필귀정",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W004",
+    "front": "전화",
+    "answer": "위복",
+    "acceptableAnswers": [
+      "위복"
+    ],
+    "fullWord": "전화위복",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W005",
+    "front": "고진",
+    "answer": "감래",
+    "acceptableAnswers": [
+      "감래"
+    ],
+    "fullWord": "고진감래",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W006",
+    "front": "유비",
+    "answer": "무환",
+    "acceptableAnswers": [
+      "무환"
+    ],
+    "fullWord": "유비무환",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W007",
+    "front": "동문",
+    "answer": "서답",
+    "acceptableAnswers": [
+      "서답"
+    ],
+    "fullWord": "동문서답",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W008",
+    "front": "자업",
+    "answer": "자득",
+    "acceptableAnswers": [
+      "자득"
+    ],
+    "fullWord": "자업자득",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W009",
+    "front": "우왕",
+    "answer": "좌왕",
+    "acceptableAnswers": [
+      "좌왕"
+    ],
+    "fullWord": "우왕좌왕",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W010",
+    "front": "일편",
+    "answer": "단심",
+    "acceptableAnswers": [
+      "단심"
+    ],
+    "fullWord": "일편단심",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W011",
+    "front": "오리",
+    "answer": "무중",
+    "acceptableAnswers": [
+      "무중"
+    ],
+    "fullWord": "오리무중",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W012",
+    "front": "용두",
+    "answer": "사미",
+    "acceptableAnswers": [
+      "사미"
+    ],
+    "fullWord": "용두사미",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W013",
+    "front": "대기",
+    "answer": "만성",
+    "acceptableAnswers": [
+      "만성"
+    ],
+    "fullWord": "대기만성",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W014",
+    "front": "금상",
+    "answer": "첨화",
+    "acceptableAnswers": [
+      "첨화"
+    ],
+    "fullWord": "금상첨화",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W015",
+    "front": "청출",
+    "answer": "어람",
+    "acceptableAnswers": [
+      "어람"
+    ],
+    "fullWord": "청출어람",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W016",
+    "front": "각골",
+    "answer": "난망",
+    "acceptableAnswers": [
+      "난망"
+    ],
+    "fullWord": "각골난망",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W017",
+    "front": "군계",
+    "answer": "일학",
+    "acceptableAnswers": [
+      "일학"
+    ],
+    "fullWord": "군계일학",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W018",
+    "front": "설상",
+    "answer": "가상",
+    "acceptableAnswers": [
+      "가상"
+    ],
+    "fullWord": "설상가상",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W019",
+    "front": "일사",
+    "answer": "천리",
+    "acceptableAnswers": [
+      "천리"
+    ],
+    "fullWord": "일사천리",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W020",
+    "front": "주객",
+    "answer": "전도",
+    "acceptableAnswers": [
+      "전도"
+    ],
+    "fullWord": "주객전도",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W021",
+    "front": "호시",
+    "answer": "탐탐",
+    "acceptableAnswers": [
+      "탐탐"
+    ],
+    "fullWord": "호시탐탐",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W022",
+    "front": "점입",
+    "answer": "가경",
+    "acceptableAnswers": [
+      "가경"
+    ],
+    "fullWord": "점입가경",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W023",
+    "front": "불철",
+    "answer": "주야",
+    "acceptableAnswers": [
+      "주야"
+    ],
+    "fullWord": "불철주야",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W024",
+    "front": "백발",
+    "answer": "백중",
+    "acceptableAnswers": [
+      "백중"
+    ],
+    "fullWord": "백발백중",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W025",
+    "front": "중구",
+    "answer": "난방",
+    "acceptableAnswers": [
+      "난방"
+    ],
+    "fullWord": "중구난방",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W026",
+    "front": "십시",
+    "answer": "일반",
+    "acceptableAnswers": [
+      "일반"
+    ],
+    "fullWord": "십시일반",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W027",
+    "front": "동고",
+    "answer": "동락",
+    "acceptableAnswers": [
+      "동락"
+    ],
+    "fullWord": "동고동락",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W028",
+    "front": "막상",
+    "answer": "막하",
+    "acceptableAnswers": [
+      "막하"
+    ],
+    "fullWord": "막상막하",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W029",
+    "front": "이심",
+    "answer": "전심",
+    "acceptableAnswers": [
+      "전심"
+    ],
+    "fullWord": "이심전심",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W030",
+    "front": "천차",
+    "answer": "만별",
+    "acceptableAnswers": [
+      "만별"
+    ],
+    "fullWord": "천차만별",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W031",
+    "front": "무용",
+    "answer": "지물",
+    "acceptableAnswers": [
+      "지물"
+    ],
+    "fullWord": "무용지물",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W032",
+    "front": "다다",
+    "answer": "익선",
+    "acceptableAnswers": [
+      "익선"
+    ],
+    "fullWord": "다다익선",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W033",
+    "front": "사면",
+    "answer": "초가",
+    "acceptableAnswers": [
+      "초가"
+    ],
+    "fullWord": "사면초가",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W034",
+    "front": "고군",
+    "answer": "분투",
+    "acceptableAnswers": [
+      "분투"
+    ],
+    "fullWord": "고군분투",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W035",
+    "front": "자승",
+    "answer": "자박",
+    "acceptableAnswers": [
+      "자박"
+    ],
+    "fullWord": "자승자박",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W036",
+    "front": "작심",
+    "answer": "삼일",
+    "acceptableAnswers": [
+      "삼일"
+    ],
+    "fullWord": "작심삼일",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W037",
+    "front": "온고",
+    "answer": "지신",
+    "acceptableAnswers": [
+      "지신"
+    ],
+    "fullWord": "온고지신",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W038",
+    "front": "견물",
+    "answer": "생심",
+    "acceptableAnswers": [
+      "생심"
+    ],
+    "fullWord": "견물생심",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W039",
+    "front": "타산",
+    "answer": "지석",
+    "acceptableAnswers": [
+      "지석"
+    ],
+    "fullWord": "타산지석",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W040",
+    "front": "풍전",
+    "answer": "등화",
+    "acceptableAnswers": [
+      "등화"
+    ],
+    "fullWord": "풍전등화",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W041",
+    "front": "순망",
+    "answer": "치한",
+    "acceptableAnswers": [
+      "치한"
+    ],
+    "fullWord": "순망치한",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W042",
+    "front": "적반",
+    "answer": "하장",
+    "acceptableAnswers": [
+      "하장"
+    ],
+    "fullWord": "적반하장",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W043",
+    "front": "문전",
+    "answer": "성시",
+    "acceptableAnswers": [
+      "성시"
+    ],
+    "fullWord": "문전성시",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W044",
+    "front": "침소",
+    "answer": "봉대",
+    "acceptableAnswers": [
+      "봉대"
+    ],
+    "fullWord": "침소봉대",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W045",
+    "front": "살신",
+    "answer": "성인",
+    "acceptableAnswers": [
+      "성인"
+    ],
+    "fullWord": "살신성인",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W046",
+    "front": "동상",
+    "answer": "이몽",
+    "acceptableAnswers": [
+      "이몽"
+    ],
+    "fullWord": "동상이몽",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W047",
+    "front": "오매",
+    "answer": "불망",
+    "acceptableAnswers": [
+      "불망"
+    ],
+    "fullWord": "오매불망",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W048",
+    "front": "근묵",
+    "answer": "자흑",
+    "acceptableAnswers": [
+      "자흑"
+    ],
+    "fullWord": "근묵자흑",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W049",
+    "front": "명실",
+    "answer": "상부",
+    "acceptableAnswers": [
+      "상부"
+    ],
+    "fullWord": "명실상부",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W050",
+    "front": "선견",
+    "answer": "지명",
+    "acceptableAnswers": [
+      "지명"
+    ],
+    "fullWord": "선견지명",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W051",
+    "front": "천고",
+    "answer": "마비",
+    "acceptableAnswers": [
+      "마비"
+    ],
+    "fullWord": "천고마비",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W052",
+    "front": "안하",
+    "answer": "무인",
+    "acceptableAnswers": [
+      "무인"
+    ],
+    "fullWord": "안하무인",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W053",
+    "front": "인과",
+    "answer": "응보",
+    "acceptableAnswers": [
+      "응보"
+    ],
+    "fullWord": "인과응보",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W054",
+    "front": "권선",
+    "answer": "징악",
+    "acceptableAnswers": [
+      "징악"
+    ],
+    "fullWord": "권선징악",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W055",
+    "front": "어부",
+    "answer": "지리",
+    "acceptableAnswers": [
+      "지리"
+    ],
+    "fullWord": "어부지리",
+    "hint": "뜻을 생각하며 완성하는 네 글자 표현입니다.",
+    "category": "사자성어"
+  },
+  {
+    "id": "W056",
+    "front": "김치",
+    "answer": "찌개",
+    "acceptableAnswers": [
+      "찌개",
+      "찌게"
+    ],
+    "fullWord": "김치찌개",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W057",
+    "front": "제육",
+    "answer": "볶음",
+    "acceptableAnswers": [
+      "볶음"
+    ],
+    "fullWord": "제육볶음",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W058",
+    "front": "감자",
+    "answer": "튀김",
+    "acceptableAnswers": [
+      "튀김"
+    ],
+    "fullWord": "감자튀김",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W059",
+    "front": "계란",
+    "answer": "말이",
+    "acceptableAnswers": [
+      "말이"
+    ],
+    "fullWord": "계란말이",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W060",
+    "front": "비빔",
+    "answer": "국수",
+    "acceptableAnswers": [
+      "국수"
+    ],
+    "fullWord": "비빔국수",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W061",
+    "front": "참치",
+    "answer": "마요",
+    "acceptableAnswers": [
+      "마요"
+    ],
+    "fullWord": "참치마요",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W062",
+    "front": "치즈",
+    "answer": "김밥",
+    "acceptableAnswers": [
+      "김밥"
+    ],
+    "fullWord": "치즈김밥",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W063",
+    "front": "초코",
+    "answer": "우유",
+    "acceptableAnswers": [
+      "우유"
+    ],
+    "fullWord": "초코우유",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W064",
+    "front": "딸기",
+    "answer": "라떼",
+    "acceptableAnswers": [
+      "라떼"
+    ],
+    "fullWord": "딸기라떼",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W065",
+    "front": "망고",
+    "answer": "주스",
+    "acceptableAnswers": [
+      "주스"
+    ],
+    "fullWord": "망고주스",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W066",
+    "front": "양념",
+    "answer": "치킨",
+    "acceptableAnswers": [
+      "치킨"
+    ],
+    "fullWord": "양념치킨",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W067",
+    "front": "후라",
+    "answer": "이드",
+    "acceptableAnswers": [
+      "이드"
+    ],
+    "fullWord": "후라이드",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W068",
+    "front": "김밥",
+    "answer": "천국",
+    "acceptableAnswers": [
+      "천국"
+    ],
+    "fullWord": "김밥천국",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W069",
+    "front": "호두",
+    "answer": "과자",
+    "acceptableAnswers": [
+      "과자"
+    ],
+    "fullWord": "호두과자",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W070",
+    "front": "돼지",
+    "answer": "국밥",
+    "acceptableAnswers": [
+      "국밥"
+    ],
+    "fullWord": "돼지국밥",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W071",
+    "front": "카레",
+    "answer": "우동",
+    "acceptableAnswers": [
+      "우동"
+    ],
+    "fullWord": "카레우동",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W072",
+    "front": "버터",
+    "answer": "구이",
+    "acceptableAnswers": [
+      "구이"
+    ],
+    "fullWord": "버터구이",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W073",
+    "front": "크림",
+    "answer": "스프",
+    "acceptableAnswers": [
+      "스프"
+    ],
+    "fullWord": "크림스프",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W074",
+    "front": "짜장",
+    "answer": "라면",
+    "acceptableAnswers": [
+      "라면"
+    ],
+    "fullWord": "짜장라면",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W075",
+    "front": "짬뽕",
+    "answer": "국물",
+    "acceptableAnswers": [
+      "국물"
+    ],
+    "fullWord": "짬뽕국물",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W076",
+    "front": "치킨",
+    "answer": "너겟",
+    "acceptableAnswers": [
+      "너겟"
+    ],
+    "fullWord": "치킨너겟",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W077",
+    "front": "닭가",
+    "answer": "슴살",
+    "acceptableAnswers": [
+      "슴살"
+    ],
+    "fullWord": "닭가슴살",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W078",
+    "front": "마라",
+    "answer": "탕집",
+    "acceptableAnswers": [
+      "탕집"
+    ],
+    "fullWord": "마라탕집",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W079",
+    "front": "사과",
+    "answer": "파이",
+    "acceptableAnswers": [
+      "파이"
+    ],
+    "fullWord": "사과파이",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W080",
+    "front": "누룽",
+    "answer": "지탕",
+    "acceptableAnswers": [
+      "지탕"
+    ],
+    "fullWord": "누룽지탕",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W081",
+    "front": "멜론",
+    "answer": "빙수",
+    "acceptableAnswers": [
+      "빙수"
+    ],
+    "fullWord": "멜론빙수",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W082",
+    "front": "새우",
+    "answer": "버거",
+    "acceptableAnswers": [
+      "버거"
+    ],
+    "fullWord": "새우버거",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W083",
+    "front": "군고",
+    "answer": "구마",
+    "acceptableAnswers": [
+      "구마"
+    ],
+    "fullWord": "군고구마",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W084",
+    "front": "초밥",
+    "answer": "세트",
+    "acceptableAnswers": [
+      "세트"
+    ],
+    "fullWord": "초밥세트",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W085",
+    "front": "샌드",
+    "answer": "위치",
+    "acceptableAnswers": [
+      "위치"
+    ],
+    "fullWord": "샌드위치",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W086",
+    "front": "요거",
+    "answer": "트볼",
+    "acceptableAnswers": [
+      "트볼"
+    ],
+    "fullWord": "요거트볼",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W087",
+    "front": "견과",
+    "answer": "류바",
+    "acceptableAnswers": [
+      "류바"
+    ],
+    "fullWord": "견과류바",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W088",
+    "front": "소금",
+    "answer": "빵집",
+    "acceptableAnswers": [
+      "빵집"
+    ],
+    "fullWord": "소금빵집",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W089",
+    "front": "바나",
+    "answer": "나킥",
+    "acceptableAnswers": [
+      "나킥"
+    ],
+    "fullWord": "바나나킥",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W090",
+    "front": "오렌",
+    "answer": "지청",
+    "acceptableAnswers": [
+      "지청"
+    ],
+    "fullWord": "오렌지청",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W091",
+    "front": "복숭",
+    "answer": "아청",
+    "acceptableAnswers": [
+      "아청"
+    ],
+    "fullWord": "복숭아청",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W092",
+    "front": "콜라",
+    "answer": "사탕",
+    "acceptableAnswers": [
+      "사탕"
+    ],
+    "fullWord": "콜라사탕",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W093",
+    "front": "소보",
+    "answer": "로빵",
+    "acceptableAnswers": [
+      "로빵"
+    ],
+    "fullWord": "소보로빵",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W094",
+    "front": "단팥",
+    "answer": "호빵",
+    "acceptableAnswers": [
+      "호빵"
+    ],
+    "fullWord": "단팥호빵",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W095",
+    "front": "어묵",
+    "answer": "꼬치",
+    "acceptableAnswers": [
+      "꼬치"
+    ],
+    "fullWord": "어묵꼬치",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W096",
+    "front": "꼬치",
+    "answer": "어묵",
+    "acceptableAnswers": [
+      "어묵"
+    ],
+    "fullWord": "꼬치어묵",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W097",
+    "front": "옥수",
+    "answer": "수콘",
+    "acceptableAnswers": [
+      "수콘"
+    ],
+    "fullWord": "옥수수콘",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W098",
+    "front": "라면",
+    "answer": "사리",
+    "acceptableAnswers": [
+      "사리"
+    ],
+    "fullWord": "라면사리",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W099",
+    "front": "냉면",
+    "answer": "육수",
+    "acceptableAnswers": [
+      "육수"
+    ],
+    "fullWord": "냉면육수",
+    "hint": "음식이나 간식과 관련된 네 글자 말입니다.",
+    "category": "음식"
+  },
+  {
+    "id": "W100",
+    "front": "수업",
+    "answer": "시간",
+    "acceptableAnswers": [
+      "시간"
+    ],
+    "fullWord": "수업시간",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W101",
+    "front": "급식",
+    "answer": "메뉴",
+    "acceptableAnswers": [
+      "메뉴"
+    ],
+    "fullWord": "급식메뉴",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W102",
+    "front": "학교",
+    "answer": "생활",
+    "acceptableAnswers": [
+      "생활"
+    ],
+    "fullWord": "학교생활",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W103",
+    "front": "교실",
+    "answer": "청소",
+    "acceptableAnswers": [
+      "청소"
+    ],
+    "fullWord": "교실청소",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W104",
+    "front": "발표",
+    "answer": "자료",
+    "acceptableAnswers": [
+      "자료"
+    ],
+    "fullWord": "발표자료",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W105",
+    "front": "모둠",
+    "answer": "활동",
+    "acceptableAnswers": [
+      "활동"
+    ],
+    "fullWord": "모둠활동",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W106",
+    "front": "학습",
+    "answer": "목표",
+    "acceptableAnswers": [
+      "목표"
+    ],
+    "fullWord": "학습목표",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W107",
+    "front": "숙제",
+    "answer": "검사",
+    "acceptableAnswers": [
+      "검사"
+    ],
+    "fullWord": "숙제검사",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W108",
+    "front": "과학",
+    "answer": "실험",
+    "acceptableAnswers": [
+      "실험"
+    ],
+    "fullWord": "과학실험",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W109",
+    "front": "영어",
+    "answer": "단어",
+    "acceptableAnswers": [
+      "단어"
+    ],
+    "fullWord": "영어단어",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W110",
+    "front": "체육",
+    "answer": "대회",
+    "acceptableAnswers": [
+      "대회"
+    ],
+    "fullWord": "체육대회",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W111",
+    "front": "교내",
+    "answer": "방송",
+    "acceptableAnswers": [
+      "방송"
+    ],
+    "fullWord": "교내방송",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W112",
+    "front": "수행",
+    "answer": "평가",
+    "acceptableAnswers": [
+      "평가"
+    ],
+    "fullWord": "수행평가",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W113",
+    "front": "학급",
+    "answer": "규칙",
+    "acceptableAnswers": [
+      "규칙"
+    ],
+    "fullWord": "학급규칙",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W114",
+    "front": "출석",
+    "answer": "번호",
+    "acceptableAnswers": [
+      "번호"
+    ],
+    "fullWord": "출석번호",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W115",
+    "front": "독서",
+    "answer": "기록",
+    "acceptableAnswers": [
+      "기록"
+    ],
+    "fullWord": "독서기록",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W116",
+    "front": "강당",
+    "answer": "무대",
+    "acceptableAnswers": [
+      "무대"
+    ],
+    "fullWord": "강당무대",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W117",
+    "front": "도서",
+    "answer": "대출",
+    "acceptableAnswers": [
+      "대출"
+    ],
+    "fullWord": "도서대출",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W118",
+    "front": "체험",
+    "answer": "학습",
+    "acceptableAnswers": [
+      "학습"
+    ],
+    "fullWord": "체험학습",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W119",
+    "front": "영상",
+    "answer": "수업",
+    "acceptableAnswers": [
+      "수업"
+    ],
+    "fullWord": "영상수업",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W120",
+    "front": "안전",
+    "answer": "교육",
+    "acceptableAnswers": [
+      "교육"
+    ],
+    "fullWord": "안전교육",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W121",
+    "front": "진로",
+    "answer": "탐색",
+    "acceptableAnswers": [
+      "탐색"
+    ],
+    "fullWord": "진로탐색",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W122",
+    "front": "친구",
+    "answer": "사이",
+    "acceptableAnswers": [
+      "사이"
+    ],
+    "fullWord": "친구사이",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W123",
+    "front": "현장",
+    "answer": "체험",
+    "acceptableAnswers": [
+      "체험"
+    ],
+    "fullWord": "현장체험",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W124",
+    "front": "자유",
+    "answer": "학기",
+    "acceptableAnswers": [
+      "학기"
+    ],
+    "fullWord": "자유학기",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W125",
+    "front": "책상",
+    "answer": "정돈",
+    "acceptableAnswers": [
+      "정돈"
+    ],
+    "fullWord": "책상정돈",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W126",
+    "front": "아침",
+    "answer": "독서",
+    "acceptableAnswers": [
+      "독서"
+    ],
+    "fullWord": "아침독서",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W127",
+    "front": "교장",
+    "answer": "선생",
+    "acceptableAnswers": [
+      "선생"
+    ],
+    "fullWord": "교장선생",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W128",
+    "front": "칠판",
+    "answer": "글씨",
+    "acceptableAnswers": [
+      "글씨"
+    ],
+    "fullWord": "칠판글씨",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W129",
+    "front": "복도",
+    "answer": "통행",
+    "acceptableAnswers": [
+      "통행"
+    ],
+    "fullWord": "복도통행",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W130",
+    "front": "활동",
+    "answer": "사진",
+    "acceptableAnswers": [
+      "사진"
+    ],
+    "fullWord": "활동사진",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W131",
+    "front": "과제",
+    "answer": "제출",
+    "acceptableAnswers": [
+      "제출"
+    ],
+    "fullWord": "과제제출",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W132",
+    "front": "상장",
+    "answer": "수여",
+    "acceptableAnswers": [
+      "수여"
+    ],
+    "fullWord": "상장수여",
+    "hint": "학교생활이나 수업과 관련된 네 글자 말입니다.",
+    "category": "학교"
+  },
+  {
+    "id": "W133",
+    "front": "대한",
+    "answer": "민국",
+    "acceptableAnswers": [
+      "민국"
+    ],
+    "fullWord": "대한민국",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W134",
+    "front": "서울",
+    "answer": "타워",
+    "acceptableAnswers": [
+      "타워"
+    ],
+    "fullWord": "서울타워",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W135",
+    "front": "부산",
+    "answer": "항구",
+    "acceptableAnswers": [
+      "항구"
+    ],
+    "fullWord": "부산항구",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W136",
+    "front": "제주",
+    "answer": "바다",
+    "acceptableAnswers": [
+      "바다"
+    ],
+    "fullWord": "제주바다",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W137",
+    "front": "한강",
+    "answer": "공원",
+    "acceptableAnswers": [
+      "공원"
+    ],
+    "fullWord": "한강공원",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W138",
+    "front": "동네",
+    "answer": "마트",
+    "acceptableAnswers": [
+      "마트"
+    ],
+    "fullWord": "동네마트",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W139",
+    "front": "버스",
+    "answer": "노선",
+    "acceptableAnswers": [
+      "노선"
+    ],
+    "fullWord": "버스노선",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W140",
+    "front": "지하",
+    "answer": "철역",
+    "acceptableAnswers": [
+      "철역"
+    ],
+    "fullWord": "지하철역",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W141",
+    "front": "공항",
+    "answer": "버스",
+    "acceptableAnswers": [
+      "버스"
+    ],
+    "fullWord": "공항버스",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W142",
+    "front": "기차",
+    "answer": "여행",
+    "acceptableAnswers": [
+      "여행"
+    ],
+    "fullWord": "기차여행",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W143",
+    "front": "고속",
+    "answer": "도로",
+    "acceptableAnswers": [
+      "도로"
+    ],
+    "fullWord": "고속도로",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W144",
+    "front": "시골",
+    "answer": "마을",
+    "acceptableAnswers": [
+      "마을"
+    ],
+    "fullWord": "시골마을",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W145",
+    "front": "도시",
+    "answer": "풍경",
+    "acceptableAnswers": [
+      "풍경"
+    ],
+    "fullWord": "도시풍경",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W146",
+    "front": "숲속",
+    "answer": "산책",
+    "acceptableAnswers": [
+      "산책"
+    ],
+    "fullWord": "숲속산책",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W147",
+    "front": "해변",
+    "answer": "모래",
+    "acceptableAnswers": [
+      "모래"
+    ],
+    "fullWord": "해변모래",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W148",
+    "front": "하늘",
+    "answer": "구름",
+    "acceptableAnswers": [
+      "구름"
+    ],
+    "fullWord": "하늘구름",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W149",
+    "front": "바닷",
+    "answer": "바람",
+    "acceptableAnswers": [
+      "바람"
+    ],
+    "fullWord": "바닷바람",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W150",
+    "front": "가을",
+    "answer": "단풍",
+    "acceptableAnswers": [
+      "단풍"
+    ],
+    "fullWord": "가을단풍",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W151",
+    "front": "겨울",
+    "answer": "눈꽃",
+    "acceptableAnswers": [
+      "눈꽃"
+    ],
+    "fullWord": "겨울눈꽃",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W152",
+    "front": "봄꽃",
+    "answer": "축제",
+    "acceptableAnswers": [
+      "축제"
+    ],
+    "fullWord": "봄꽃축제",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W153",
+    "front": "여름",
+    "answer": "방학",
+    "acceptableAnswers": [
+      "방학"
+    ],
+    "fullWord": "여름방학",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W154",
+    "front": "우산",
+    "answer": "가게",
+    "acceptableAnswers": [
+      "가게"
+    ],
+    "fullWord": "우산가게",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W155",
+    "front": "동물",
+    "answer": "병원",
+    "acceptableAnswers": [
+      "병원"
+    ],
+    "fullWord": "동물병원",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W156",
+    "front": "약국",
+    "answer": "간판",
+    "acceptableAnswers": [
+      "간판"
+    ],
+    "fullWord": "약국간판",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W157",
+    "front": "문화",
+    "answer": "센터",
+    "acceptableAnswers": [
+      "센터"
+    ],
+    "fullWord": "문화센터",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W158",
+    "front": "공중",
+    "answer": "전화",
+    "acceptableAnswers": [
+      "전화"
+    ],
+    "fullWord": "공중전화",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W159",
+    "front": "시장",
+    "answer": "골목",
+    "acceptableAnswers": [
+      "골목"
+    ],
+    "fullWord": "시장골목",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W160",
+    "front": "공원",
+    "answer": "벤치",
+    "acceptableAnswers": [
+      "벤치"
+    ],
+    "fullWord": "공원벤치",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W161",
+    "front": "박물",
+    "answer": "관장",
+    "acceptableAnswers": [
+      "관장"
+    ],
+    "fullWord": "박물관장",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W162",
+    "front": "미술",
+    "answer": "전시",
+    "acceptableAnswers": [
+      "전시"
+    ],
+    "fullWord": "미술전시",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W163",
+    "front": "영화",
+    "answer": "극장",
+    "acceptableAnswers": [
+      "극장"
+    ],
+    "fullWord": "영화극장",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W164",
+    "front": "은행",
+    "answer": "창구",
+    "acceptableAnswers": [
+      "창구"
+    ],
+    "fullWord": "은행창구",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W165",
+    "front": "병원",
+    "answer": "접수",
+    "acceptableAnswers": [
+      "접수"
+    ],
+    "fullWord": "병원접수",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W166",
+    "front": "약속",
+    "answer": "장소",
+    "acceptableAnswers": [
+      "장소"
+    ],
+    "fullWord": "약속장소",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W167",
+    "front": "생일",
+    "answer": "파티",
+    "acceptableAnswers": [
+      "파티"
+    ],
+    "fullWord": "생일파티",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W168",
+    "front": "저녁",
+    "answer": "노을",
+    "acceptableAnswers": [
+      "노을"
+    ],
+    "fullWord": "저녁노을",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W169",
+    "front": "무지",
+    "answer": "개빛",
+    "acceptableAnswers": [
+      "개빛"
+    ],
+    "fullWord": "무지개빛",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W170",
+    "front": "꽃잎",
+    "answer": "향기",
+    "acceptableAnswers": [
+      "향기"
+    ],
+    "fullWord": "꽃잎향기",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W171",
+    "front": "나무",
+    "answer": "그늘",
+    "acceptableAnswers": [
+      "그늘"
+    ],
+    "fullWord": "나무그늘",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W172",
+    "front": "바람",
+    "answer": "개비",
+    "acceptableAnswers": [
+      "개비"
+    ],
+    "fullWord": "바람개비",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W173",
+    "front": "텔레",
+    "answer": "비전",
+    "acceptableAnswers": [
+      "비전",
+      "비젼"
+    ],
+    "fullWord": "텔레비전",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W174",
+    "front": "스파",
+    "answer": "게티",
+    "acceptableAnswers": [
+      "게티"
+    ],
+    "fullWord": "스파게티",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W175",
+    "front": "스마",
+    "answer": "트폰",
+    "acceptableAnswers": [
+      "트폰"
+    ],
+    "fullWord": "스마트폰",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W176",
+    "front": "컴퓨",
+    "answer": "터실",
+    "acceptableAnswers": [
+      "터실"
+    ],
+    "fullWord": "컴퓨터실",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W177",
+    "front": "인터",
+    "answer": "넷창",
+    "acceptableAnswers": [
+      "넷창"
+    ],
+    "fullWord": "인터넷창",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W178",
+    "front": "키보",
+    "answer": "드판",
+    "acceptableAnswers": [
+      "드판"
+    ],
+    "fullWord": "키보드판",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W179",
+    "front": "블루",
+    "answer": "투스",
+    "acceptableAnswers": [
+      "투스"
+    ],
+    "fullWord": "블루투스",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W180",
+    "front": "이어",
+    "answer": "폰줄",
+    "acceptableAnswers": [
+      "폰줄"
+    ],
+    "fullWord": "이어폰줄",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W181",
+    "front": "전자",
+    "answer": "시계",
+    "acceptableAnswers": [
+      "시계"
+    ],
+    "fullWord": "전자시계",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W182",
+    "front": "디지",
+    "answer": "털펜",
+    "acceptableAnswers": [
+      "털펜"
+    ],
+    "fullWord": "디지털펜",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W183",
+    "front": "카메",
+    "answer": "라앱",
+    "acceptableAnswers": [
+      "라앱"
+    ],
+    "fullWord": "카메라앱",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W184",
+    "front": "프린",
+    "answer": "터기",
+    "acceptableAnswers": [
+      "터기"
+    ],
+    "fullWord": "프린터기",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W185",
+    "front": "인공",
+    "answer": "지능",
+    "acceptableAnswers": [
+      "지능"
+    ],
+    "fullWord": "인공지능",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W186",
+    "front": "온라",
+    "answer": "인방",
+    "acceptableAnswers": [
+      "인방"
+    ],
+    "fullWord": "온라인방",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W187",
+    "front": "검색",
+    "answer": "엔진",
+    "acceptableAnswers": [
+      "엔진"
+    ],
+    "fullWord": "검색엔진",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W188",
+    "front": "데이",
+    "answer": "터값",
+    "acceptableAnswers": [
+      "터값"
+    ],
+    "fullWord": "데이터값",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W189",
+    "front": "클라",
+    "answer": "우드",
+    "acceptableAnswers": [
+      "우드"
+    ],
+    "fullWord": "클라우드",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W190",
+    "front": "파일",
+    "answer": "이름",
+    "acceptableAnswers": [
+      "이름"
+    ],
+    "fullWord": "파일이름",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W191",
+    "front": "화면",
+    "answer": "공유",
+    "acceptableAnswers": [
+      "공유"
+    ],
+    "fullWord": "화면공유",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W192",
+    "front": "사진",
+    "answer": "앨범",
+    "acceptableAnswers": [
+      "앨범"
+    ],
+    "fullWord": "사진앨범",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W193",
+    "front": "음성",
+    "answer": "녹음",
+    "acceptableAnswers": [
+      "녹음"
+    ],
+    "fullWord": "음성녹음",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  },
+  {
+    "id": "W194",
+    "front": "소방",
+    "answer": "차량",
+    "acceptableAnswers": [
+      "차량"
+    ],
+    "fullWord": "소방차량",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W195",
+    "front": "경찰",
+    "answer": "제복",
+    "acceptableAnswers": [
+      "제복"
+    ],
+    "fullWord": "경찰제복",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W196",
+    "front": "장난",
+    "answer": "감차",
+    "acceptableAnswers": [
+      "감차"
+    ],
+    "fullWord": "장난감차",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W197",
+    "front": "별자",
+    "answer": "리표",
+    "acceptableAnswers": [
+      "리표"
+    ],
+    "fullWord": "별자리표",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W198",
+    "front": "강물",
+    "answer": "소리",
+    "acceptableAnswers": [
+      "소리"
+    ],
+    "fullWord": "강물소리",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W199",
+    "front": "음악",
+    "answer": "감상",
+    "acceptableAnswers": [
+      "감상"
+    ],
+    "fullWord": "음악감상",
+    "hint": "일상생활이나 장소와 관련된 네 글자 말입니다.",
+    "category": "생활"
+  },
+  {
+    "id": "W200",
+    "front": "게임",
+    "answer": "설정",
+    "acceptableAnswers": [
+      "설정"
+    ],
+    "fullWord": "게임설정",
+    "hint": "기기, 인터넷, 디지털 활동과 관련된 네 글자 말입니다.",
+    "category": "기술"
+  }
+]
