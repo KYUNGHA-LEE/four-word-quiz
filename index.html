@@ -230,6 +230,43 @@
       transform: translateY(-0.08em);
     }
 
+    .inline-answer-input {
+      width: clamp(150px, 22vw, 260px);
+      min-width: 0;
+      padding: 0 0 8px;
+      border: 0;
+      border-bottom: clamp(8px, 1.2vw, 14px) solid #c4b5fd;
+      border-radius: 0;
+      background: transparent;
+      color: var(--primary-dark);
+      font-size: clamp(4rem, 12vw, 8rem);
+      font-weight: 1000;
+      letter-spacing: -0.08em;
+      line-height: 1;
+      text-align: center;
+      box-shadow: none;
+    }
+
+    .inline-answer-input:focus {
+      border-color: var(--primary);
+      background: transparent;
+    }
+
+    .inline-answer-input:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    .inline-answer-input::placeholder {
+      color: #c4b5fd;
+      opacity: 1;
+    }
+
+    .answer-submit-area {
+      display: flex;
+      justify-content: center;
+    }
+
     .hint-box {
       margin-top: 18px;
       padding: 14px 16px;
@@ -512,11 +549,10 @@
         <div class="card col-12 stack">
           <p class="pill" id="studentStatus">대기 중</p>
           <div class="question-box">
-            <div class="front-word"><span id="studentFront">__</span><span class="answer-slots" aria-label="뒤 2글자 빈칸"><span class="letter-slot"></span><span class="letter-slot"></span></span></div>
+            <div class="front-word"><span id="studentFront">__</span><input id="answerInput" class="inline-answer-input" type="text" maxlength="2" inputmode="text" autocomplete="off" placeholder="__" aria-label="뒤 2글자 입력" /></div>
             <div class="hint-box hidden" id="studentHintBox"></div>
           </div>
-          <div class="input-row" id="answerArea">
-            <input id="answerInput" type="text" maxlength="10" placeholder="뒤 2글자 입력" />
+          <div class="answer-submit-area" id="answerArea">
             <button id="submitAnswerBtn">제출</button>
           </div>
           <p class="message" id="answerMsg"></p>
@@ -1170,7 +1206,7 @@
           : '제출 완료: 오답입니다. 이 문제는 다시 제출할 수 없습니다.';
         showMessage('answerMsg', msg, submitted.correct ? 'ok' : 'bad');
       } else if (room.gameStatus === 'playing' && question) {
-        showMessage('answerMsg', '뒤 2글자를 입력하고 Enter를 누르세요. 한 문제에 한 번만 제출할 수 있습니다.');
+        showMessage('answerMsg', '제시어 오른쪽 큰 입력칸에 뒤 2글자를 입력하고 Enter를 누르세요. 한 문제에 한 번만 제출할 수 있습니다.');
       } else {
         showMessage('answerMsg', '');
       }
