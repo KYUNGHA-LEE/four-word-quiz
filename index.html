@@ -139,7 +139,7 @@
 
     .home-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: 18px;
       margin-top: 20px;
     }
@@ -494,19 +494,8 @@
       <p class="hero-desc">AI가 만든 앞 2글자 문제를 보고, 학생들이 뒤 2글자를 빠르게 입력하는 실시간 수업 게임입니다.</p>
       <p class="muted"><strong>소리가 나지 않으면 화면을 한 번 클릭하거나 터치해 주세요.</strong></p>
       <div class="home-grid">
-        <button id="goTeacherBtn">강사로 입장</button>
         <button class="btn-green" id="goStudentBtn">학생으로 입장</button>
       </div>
-    </section>
-
-    <section class="card hidden" id="teacherLoginView">
-      <h2>강사 입장</h2>
-      <p class="muted">강사 비밀번호를 입력하세요.</p>
-      <div class="input-row">
-        <input id="teacherPasswordInput" type="password" autocomplete="current-password" placeholder="강사 비밀번호" />
-        <button id="teacherLoginBtn">입장</button>
-      </div>
-      <p class="message" id="teacherLoginMsg"></p>
     </section>
 
     <section class="hidden" id="teacherView">
@@ -651,7 +640,7 @@
     } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js';
 
     const firebaseConfig = {
-      apiKey: 'AIzaSyBCg7wgZKbzFqlyli1QKVOXwCeEbHXcd8s',
+      apiKey: 'AIzaSyBC•••••••••••••••••••••••••••••••',
       authDomain: 'four-word-quiz.firebaseapp.com',
       databaseURL: 'https://four-word-quiz-default-rtdb.asia-southeast1.firebasedatabase.app',
       projectId: 'four-word-quiz',
@@ -666,7 +655,6 @@
 
     const views = {
       home: $('homeView'),
-      teacherLogin: $('teacherLoginView'),
       teacher: $('teacherView'),
       studentJoin: $('studentJoinView'),
       student: $('studentView')
@@ -820,9 +808,15 @@
       auth = getAuth(app);
       db = getDatabase(app);
 
-      onAuthStateChanged(auth, (user) => {
+      onAuthStateChanged(auth, async (user) => {
         uid = user?.uid || null;
-        if (uid) listenRoom();
+        if (uid) {
+          if (isTeacher) {
+            await ensureTeacherRoom();
+            showMessage('teacherMsg', '강사로 입장했습니다.', 'ok');
+          }
+          listenRoom();
+        }
       });
 
       await signInAnonymously(auth);
@@ -855,32 +849,6 @@
       } else {
         await update(roomRef, { hostUid: uid, gameType: 'fourWordQuiz' });
       }
-    }
-
-    async function teacherLogin() {
-      sfx.click();
-      showMessage('teacherLoginMsg', '확인 중입니다...');
-      try {
-        const password = $('teacherPasswordInput').value;
-        const response = await fetch('/api/check-teacher', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ password })
-        });
-        const data = await response.json();
-        if (!response.ok || !data.ok) throw new Error(data.error || '입장할 수 없습니다.');
-        isTeacher = true;
-        await ensureTeacherRoom();
-        showView('teacher');
-        setupStudentLink();
-        showMessage('teacherMsg', '강사로 입장했습니다.', 'ok');
-      } catch (error) {
-        showMessage('teacherLoginMsg', error.message || '비밀번호 확인 중 오류가 발생했습니다.', 'bad');
-      }
-    }
-
-    function setupStudentLink() {
-      // 학생 입장 QR/링크 영역은 강사 화면에서 제거했습니다.
     }
 
     async function joinStudent() {
@@ -1183,7 +1151,6 @@
 
     function renderTeacher() {
       if (!isTeacher) return;
-      setupStudentLink();
       const statusMap = {
         waiting: '대기 중',
         generating: '문제 생성 중',
@@ -1360,10 +1327,7 @@
       document.addEventListener('touchstart', unlockAudio, { once: true });
 
       $('homeBtn').onclick = () => { sfx.click(); showView('home'); };
-      $('goTeacherBtn').onclick = () => { sfx.click(); showView('teacherLogin'); $('teacherPasswordInput').focus(); };
       $('goStudentBtn').onclick = () => { sfx.click(); showView('studentJoin'); $('nicknameInput').focus(); };
-      $('teacherLoginBtn').onclick = teacherLogin;
-      $('teacherPasswordInput').addEventListener('keydown', (event) => { if (event.key === 'Enter') teacherLogin(); });
       $('joinBtn').onclick = joinStudent;
       $('nicknameInput').addEventListener('keydown', (event) => { if (event.key === 'Enter') joinStudent(); });
       $('submitAnswerBtn').onclick = submitAnswer;
@@ -1386,7 +1350,10 @@
 
     function bootByUrl() {
       const params = new URLSearchParams(window.location.search);
-      if (params.get('mode') === 'student') {
+      if (params.get('mode') === 'admin') {
+        isTeacher = true;
+        showView('teacher');
+      } else if (params.get('mode') === 'student') {
         showView('studentJoin');
         if (myNickname) $('nicknameInput').value = myNickname;
       } else {
