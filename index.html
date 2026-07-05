@@ -691,6 +691,7 @@
     let audioUnlocked = false;
     let timerHandle = null;
     let finalCelebrated = false;
+    let lastQuestionKey = '';
 
     function isFirebaseReady() {
       return !Object.values(firebaseConfig).some((value) => String(value).startsWith('PASTE_'));
@@ -1116,8 +1117,6 @@
         sfx.wrong();
       }
 
-      $('answerInput').value = '';
-      updateStudentAnswerCards('');
       renderAll();
     }
 
@@ -1251,7 +1250,14 @@
 
       const question = getCurrentQuestion();
       setWordCards('studentFrontCards', question?.front || '??');
-      updateStudentAnswerCards($('answerInput').value);
+
+      const submitted = room.submissions?.[getCurrentIndex()]?.[uid];
+      const questionKey = `${room.gameStatus}-${getCurrentIndex()}`;
+      if (questionKey !== lastQuestionKey) {
+        lastQuestionKey = questionKey;
+        $('answerInput').value = '';
+      }
+      updateStudentAnswerCards(submitted ? submitted.value : $('answerInput').value);
 
       const hintBox = $('studentHintBox');
       if (question && room.current?.showHint) {
@@ -1262,7 +1268,6 @@
         hintBox.textContent = '';
       }
 
-      const submitted = room.submissions?.[getCurrentIndex()]?.[uid];
       const canSubmit = room.gameStatus === 'playing' && question && !submitted;
       $('answerInput').disabled = !canSubmit;
       $('submitAnswerBtn').disabled = !canSubmit;
