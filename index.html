@@ -167,7 +167,7 @@
 
     .hidden { display: none !important; }
 
-    .stack { display: grid; gap: 12px; }
+    .stack { display: grid; gap: 12px; align-content: start; }
     .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
     .between { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
 
@@ -440,6 +440,40 @@
       gap: 10px;
     }
 
+    .setting-row { gap: 10px 12px; }
+    .setting-row .check-row { white-space: nowrap; }
+
+    .num-input {
+      width: 96px;
+      padding: 9px 12px;
+    }
+
+    .roster-header h3 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(31, 41, 55, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-box {
+      width: min(520px, 100%);
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      display: grid;
+      gap: 14px;
+    }
+
     .confetti {
       position: fixed;
       inset: 0;
@@ -509,23 +543,11 @@
             <div class="pill">남은 시간 <span class="timer" id="teacherTimer">--:--</span></div>
           </div>
 
-          <div class="grid">
-            <div class="col-6 stack">
-              <label class="check-row"><input id="useTimerInput" type="checkbox" checked /> 시간으로 종료</label>
-              <label class="stack">
-                <strong>게임 시간(초)</strong>
-                <input id="durationInput" type="number" min="10" max="3600" value="120" />
-              </label>
-              <p class="help">체크를 끄면 시간 제한 없이 강사가 종료할 때까지 진행합니다.</p>
-            </div>
-            <div class="col-6 stack">
-              <label class="check-row"><input id="useQuestionLimitInput" type="checkbox" /> 문제 수로 종료</label>
-              <label class="stack">
-                <strong>문제 수</strong>
-                <input id="questionCountInput" type="number" min="5" max="200" value="20" />
-              </label>
-              <p class="help">체크를 끄면 이 숫자는 종료 조건이 아니라 DB에서 한 번에 뽑아 둘 문제 수입니다. 다 쓰면 다음 문제를 누를 때 DB에서 다시 뽑습니다.</p>
-            </div>
+          <div class="row setting-row">
+            <label class="check-row"><input id="useTimerInput" type="checkbox" checked /> 게임 시간(초)</label>
+            <input id="durationInput" class="num-input" type="number" min="10" max="3600" value="120" />
+            <label class="check-row"><input id="useQuestionLimitInput" type="checkbox" /> 문제 수</label>
+            <input id="questionCountInput" class="num-input" type="number" min="5" max="200" value="20" />
           </div>
 
           <div class="row">
@@ -558,7 +580,6 @@
             <h3>참가자</h3>
             <span class="pill"><span id="rosterCount">0</span>명</span>
           </div>
-          <p class="help">점수 높은 순으로 표시됩니다. 동점이면 먼저 입장한 학생이 위에 표시됩니다.</p>
           <div class="list" id="rosterList"></div>
         </div>
 
@@ -567,10 +588,6 @@
           <div class="list" id="submissionList"></div>
         </div>
 
-        <div class="card col-12 stack hidden" id="teacherFinalCard">
-          <h2>최종 TOP 3</h2>
-          <div class="rank-card" id="teacherFinalRank"></div>
-        </div>
       </div>
     </section>
 
@@ -616,12 +633,16 @@
           <p class="message" id="answerMsg"></p>
         </div>
 
-        <div class="card col-12 stack hidden" id="studentFinalCard">
-          <h2>최종 TOP 3</h2>
-          <div class="rank-card" id="studentFinalRank"></div>
-        </div>
       </div>
     </section>
+
+    <div class="modal-overlay hidden" id="finalModal">
+      <div class="modal-box">
+        <h2>최종 TOP 3</h2>
+        <div class="rank-card" id="finalRank"></div>
+        <button class="btn-secondary" id="closeFinalBtn">닫기</button>
+      </div>
+    </div>
   </main>
 
   <script type="module">
@@ -813,7 +834,6 @@
         if (uid) {
           if (isTeacher) {
             await ensureTeacherRoom();
-            showMessage('teacherMsg', '강사로 입장했습니다.', 'ok');
           }
           listenRoom();
         }
@@ -1211,9 +1231,6 @@
       document.querySelectorAll('[data-mark-correct]').forEach((button) => {
         button.onclick = () => markCorrect(button.dataset.markCorrect);
       });
-
-      renderRank('teacherFinalRank');
-      $('teacherFinalCard').classList.toggle('hidden', room.gameStatus !== 'finished');
     }
 
     function renderStudent() {
@@ -1262,9 +1279,6 @@
         showMessage('answerMsg', '');
       }
 
-      renderRank('studentFinalRank');
-      $('studentFinalCard').classList.toggle('hidden', room.gameStatus !== 'finished');
-
       if (room.gameStatus === 'finished' && !finalCelebrated) {
         const top = room.ranking || [];
         if (top.some((ranker) => ranker.uid === uid)) {
@@ -1301,9 +1315,27 @@
       }
     }
 
+    let finalShown = false;
+    function renderFinalModal() {
+      const finished = room.gameStatus === 'finished';
+      if (!finished) {
+        finalShown = false;
+        $('finalModal').classList.add('hidden');
+        return;
+      }
+      const inGameView = !views.teacher.classList.contains('hidden') || !views.student.classList.contains('hidden');
+      if (!inGameView) return;
+      renderRank('finalRank');
+      if (!finalShown) {
+        $('finalModal').classList.remove('hidden');
+        finalShown = true;
+      }
+    }
+
     function renderAll() {
       renderTeacher();
       renderStudent();
+      renderFinalModal();
       renderTimers();
     }
 
@@ -1320,7 +1352,7 @@
     function syncSettingInputs() {
       const useTimer = $('useTimerInput').checked;
       $('durationInput').disabled = !useTimer;
-      $('durationInput').closest('label').style.opacity = useTimer ? '1' : '0.45';
+      $('durationInput').style.opacity = useTimer ? '1' : '0.45';
     }
     function bindEvents() {
       document.addEventListener('click', unlockAudio, { once: true });
@@ -1344,6 +1376,7 @@
       $('resumeBtn').onclick = resumeGame;
       $('finishBtn').onclick = () => finishGame('강사가 게임을 종료했습니다.');
       $('resetBtn').onclick = resetGame;
+      $('closeFinalBtn').onclick = () => { sfx.click(); $('finalModal').classList.add('hidden'); };
       $('useTimerInput').onchange = syncSettingInputs;
       syncSettingInputs();
     }
